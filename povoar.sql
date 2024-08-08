@@ -13,7 +13,7 @@ insert into Jornada(nomeDaJornada) values
 
 SELECT * FROM Jornada;
 
-/*Clube (idClube, nome, anoDeFundacao)*/
+/*Clube (idClube, nome, morada, anoDeFundacao)*/
 
 insert into Clube(nome, anoDeFundacao) values 
  ('Sporting Clube de Portugal', '1932'),
@@ -39,7 +39,7 @@ insert into Clube(nome, anoDeFundacao) values
 
 insert into Equipa(nome, idClube) values 
 ('Sporting',1),('FC Porto',2),('FC Gaia',3),('Vitória FC',4),('Póvoa AC',5),
-('Benfica',6),('Águas Santas',7),('ADA Maia',8),('Madeira SAD',9),
+('Benfica',6),('Aguas Santas',7),('ADA Maia',8),('Madeira SAD',9),
 ('AD Sanjoanense',10),('Xico Andebol',11),('Artística de Avanca',12),
 ('Belenenses',13),('ABC',14),('Boa-Hora',15),('SC-Hora', 16);
 
@@ -74,7 +74,11 @@ insert into Jogo(dataJogo, idJornada, resultado) values
 ('2021-24-09',2,'34-23'),('2021-25-09',2,'21-33'),
 ('2021-25-09',2,'30-27'),('2021-25-09',2,'24-27'),
 ('2021-25-09',2,'34-31'),('2021-25-09',2,'22-30'),
-('2021-26-09',2,'33-22'),('2021-30-11',2,'25-28');
+('2021-26-09',2,'33-22'),('2021-30-11',2,'25-28'),
+('2021-06-04',30,'35-26'),('2021-06-04',30,'33-35'),
+('2021-06-04',30,'22-27'),('2021-06-04',30,'30-34'),
+('2021-06-04',30,'36-26'),('2021-06-04',30,'34-28'),
+('2021-06-04',30,'31-32'),('2021-06-04',30,'29-29');
 
 SELECT * FROM Jogo;
 
@@ -107,7 +111,12 @@ insert into JornadaEquipa(idJornada, idEquipa, classificacao, pontosNaJornada, n
 (2,5,'6º lugar',4,2,1,0,1,44),(2,10,'7º lugar',4,2,1,0,1,48),(2,4,'8º lugar',4,2,1,0,1,50),
 (2,8,'9º lugar',4,2,1,0,1,52),(2,12,'10º lugar',4,2,1,0,1,61),(2,13,'11º lugar',4,2,1,0,1,58),
 (2,16,'12º lugar',2,2,0,0,2,50),(2,9,'13º lugar',2,2,0,0,2,46),(2,11,'14º lugar',2,2,0,0,2,50),
-(2,15,'15º lugar',2,2,0,0,2,49),(2,14,'16º lugar',2,2,0,0,2,53);
+(2,15,'15º lugar',2,2,0,0,2,49),(2,14,'16º lugar',2,2,0,0,2,53), (30,2,'1º lugar',88,30,29,0,1,1071),
+(30,1,'2º lugar',85,30,27,1,2,1048),(30,6,'3º lugar',83,30,26,1,3,1024), (30,13,'4º lugar',70,30,20,0,10,884),
+(30,7,'5º lugar',64,30,17,0,13,814),(30,8,'6º lugar',62,30,15,2,13,829),(30,4,'7º lugar',61,30,13,5,12,814),
+/*(30,3,'8º lugar',61,30,13,5,12,878),*/(30,9,'9º lugar',58,30,13,2,15,846),(30,14,'10º lugar',56,30,12,2,16,825),
+(30,5,'11º lugar',54,30,11,2,17,795),(30,12,'12º lugar',53,30,10,3,17,822),(30,10,'13º lugar',47,30,7,3,20,762),
+(30,16,'14º lugar',45,30,6,3,21,729),(30,11,'15º lugar',38,30,3,2,25,738),(30,15,'16º lugar',35,30,2,1,27,735);
 
 SELECT * FROM JornadaEquipa;
 
@@ -151,12 +160,12 @@ insert into Jogador(nome,dataNasc,posicao,numero,idEquipa) values
  /* Marcador(idJogador->Jogador, idJogo->Jogo, nmrGolos) */
  
  insert into Marcador(idJogador,idJogo,nmrGolos) values 
-(1,1,3),(2,1,2),(3,1,1),(4,1,3),(5,1,4),(6,1,5),(7,1,2),
+(1,1,3),(1,10,17),(2,1,2),(2,10,2),(3,1,1),(3,10,1),(4,1,3),
+(5,1,4),(5,10,3),(6,1,5),(6,10,3),(7,1,2),(7,10,3),
 (8,1,2),(9,1,2),(10,1,1),(11,1,1),(12,1,4),(13,1,4),
 (14,1,1),(15,2,9),(16,2,2),(17,2,3),(18,2,3),(19,2,2),
 (20,2,3),(21,2,1),(22,2,8),(23,3,2),(24,3,1),(25,3,1),
 (26,3,8),(27,3,1),(28,3,3),(29,3,3),(30,3,1);
 	
 SELECT *FROM Marcador;
-
 

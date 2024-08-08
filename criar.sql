@@ -12,7 +12,8 @@ DROP TABLE IF EXISTS Clube;
 
 
 CREATE TABLE  Jornada(
-	idJornada 		INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL CHECK(idJornada<=30)
+	idJornada 		INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL CHECK(idJornada<=30),
+	nomeDaJornada	VARCHAR(10) NOT NULL  
 );
 
 CREATE TABLE Jogo (
@@ -56,7 +57,7 @@ CREATE TABLE Equipa (
 	idEquipa			INTEGER REFERENCES Equipa NOT NULL,
 	classificacao		VARCHAR(20) NOT NULL,
 	pontosNaJornada		INTEGER NOT NULL,
-	nmrJogos			INTEGER CHECK(nmrJogos=nmrVitorias + nmrDerrotas),
+	nmrJogos			INTEGER CHECK(nmrJogos=nmrVitorias + nmrDerrotas + nmrEmpates),
 	nmrVitorias			INTEGER CHECK(nmrVitorias>=0), 
 	nmrEmpates			INTEGER CHECK(nmrEmpates>=0),
 	nmrDerrotas			INTEGER CHECK(nmrDerrotas>=0),
@@ -84,6 +85,8 @@ CREATE TABLE Visitante (
 	CONSTRAINT Visitante_fk FOREIGN KEY (idJogo) REFERENCES Jogo(idJogo),
 	CONSTRAINT Visitante_fk FOREIGN KEY (idEquipa) REFERENCES Equipa(idEquipa)
 );
+
+.
 
 CREATE TABLE Marcador (
 	idJogo		INTEGER REFERENCES Jogo NOT NULL,
